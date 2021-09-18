@@ -10,6 +10,10 @@ import java.awt.event.ActionListener;
  */
 public class IUCalculadora extends javax.swing.JFrame {
 
+    String operation = "";
+    String numberA = "";
+    String numberB = "";
+
     /**
      * Creates new form IUCalculadora
      */
@@ -27,6 +31,15 @@ public class IUCalculadora extends javax.swing.JFrame {
         number7.addActionListener(new BTNNumberSEVEN());
         number8.addActionListener(new BTNNumberEIGHT());
         number9.addActionListener(new BTNNumberNINE());
+
+        //Operators
+        borrar.addActionListener(new BTNDelete());
+        punto.addActionListener(new BTNPoint());
+        suma.addActionListener(new BTNAddiction());
+        resta.addActionListener(new BTNSubtraction());
+        multiplicacion.addActionListener(new BTNMultiplication());
+        igualdad.addActionListener(new BTNResult());
+
     }
 
     /**
@@ -300,6 +313,7 @@ public class IUCalculadora extends javax.swing.JFrame {
 
     public class BTNNumberCERO implements ActionListener {
 
+        @Override
         public void actionPerformed(ActionEvent ae) {
             txfContainer.setText("0");
         }
@@ -382,6 +396,139 @@ public class IUCalculadora extends javax.swing.JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             txfContainer.setText("9");
+        }
+    }
+
+    public class BTNDelete implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Delete();
+        }
+
+    }
+
+    public class BTNPoint implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            ValidatePoint();
+        }
+
+    }
+
+    public class BTNAddiction implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Operation("+");
+        }
+
+    }
+
+    public class BTNSubtraction implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Operation("-");
+        }
+
+    }
+
+    public class BTNMultiplication implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Operation("*");
+        }
+
+    }
+
+    public class BTNResult implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Result();
+        }
+
+    }
+
+    public void Result() {
+        double n1 = Double.parseDouble(numberA);
+        double n2 = Double.parseDouble(numberB);
+        double result = 0;
+
+        if (operation.equals("+")) {
+            result = n1 + n2;
+        }
+
+        if (operation.equals("-")) {
+            result = n1 - n2;
+        }
+
+        if (operation.equals("*")) {
+            result = n1 * n2;
+        }
+
+        //Faltan mas operators en el result
+        txfContainer.setText("" + result);
+
+        numberA = "";
+        numberB = "";
+        operation = "";
+    }
+
+    public void Operation(String op) {
+
+        if (operation.equals("")) {
+            numberA = txfContainer.getText();
+            operation = op;
+        } else {
+            numberB = txfContainer.getText();
+            operation = op;
+        }
+    }
+
+    //Validar punto
+    public void ValidatePoint() {
+        String cadena = txfContainer.getText();
+        int pos = cadena.indexOf(".");
+
+        if (pos == -1) {
+            if (cadena.length() == 0) {
+                Numbers(".");
+            }
+        }
+    }
+
+    public void Numbers(String n) {
+        txfContainer.setText("");
+        if (operation.equals("")) {
+            String caja = txfContainer.getText();
+            String nuevo = caja + n;
+            txfContainer.setText(nuevo);
+        }
+
+        if (!operation.equals("")) {
+            String caja = numberB;
+            String nuevo = caja + n;
+            txfContainer.setText(nuevo);
+            numberB = nuevo;
+        }
+    }
+
+    public void Delete() {
+
+        String cadena = txfContainer.getText();
+
+        if (cadena.length() > 0) {
+            int l = cadena.length() - 1;
+
+            String nueva = cadena.substring(0, 1);
+
+            txfContainer.setText(nueva);
+        } else {
+            txfContainer.setText("0");
         }
     }
 }
