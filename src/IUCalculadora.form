@@ -82,7 +82,7 @@
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="txfResult" alignment="1" max="32767" attributes="0"/>
+                  <Component id="txfContainer" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -92,7 +92,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txfResult" min="-2" pref="63" max="-2" attributes="0"/>
+              <Component id="txfContainer" min="-2" pref="63" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
@@ -349,7 +349,7 @@
         <Property name="text" type="java.lang.String" value="DL"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txfResult">
+    <Component class="javax.swing.JTextField" name="txfContainer">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="0"/>

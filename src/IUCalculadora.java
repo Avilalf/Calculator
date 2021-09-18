@@ -1,7 +1,6 @@
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
 
 /* @autor
  * — Estudiante: Cristian David Avila Narvaez.
@@ -16,18 +15,18 @@ public class IUCalculadora extends javax.swing.JFrame {
      */
     public IUCalculadora() {
         initComponents();
-        //Asignar los manejadores de eventos a los botones.
-        ButtonPressedListener bp1 = new ButtonPressedListener();
-        number1.addActionListener(bp1);
-        number2.addActionListener(bp1);
-        number3.addActionListener(bp1);
-        number4.addActionListener(bp1);
-        number5.addActionListener(bp1);
-        number6.addActionListener(bp1);
-        number7.addActionListener(bp1);
-        number8.addActionListener(bp1);
-        number9.addActionListener(bp1);
 
+        //Numeros, manejador de eventos.
+        number0.addActionListener(new BTNNumberCERO());
+        number1.addActionListener(new BTNNumberONE());
+        number2.addActionListener(new BTNNumberTWO());
+        number3.addActionListener(new BTNNumberTHREE());
+        number4.addActionListener(new BTNNumberFOUR());
+        number5.addActionListener(new BTNNumberFIVE());
+        number6.addActionListener(new BTNNumberSIX());
+        number7.addActionListener(new BTNNumberSEVEN());
+        number8.addActionListener(new BTNNumberEIGHT());
+        number9.addActionListener(new BTNNumberNINE());
     }
 
     /**
@@ -59,7 +58,7 @@ public class IUCalculadora extends javax.swing.JFrame {
         multiplicacion = new javax.swing.JButton();
         buttonCE = new javax.swing.JButton();
         borrar = new javax.swing.JButton();
-        txfResult = new javax.swing.JTextField();
+        txfContainer = new javax.swing.JTextField();
 
         jLabel1.setText("jLabel1");
 
@@ -142,8 +141,8 @@ public class IUCalculadora extends javax.swing.JFrame {
         borrar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         borrar.setText("DL");
 
-        txfResult.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txfResult.setText("0");
+        txfContainer.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txfContainer.setText("0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -193,14 +192,14 @@ public class IUCalculadora extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(division, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(txfResult, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(txfContainer, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txfResult, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txfContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(64, 64, 64)
@@ -296,18 +295,93 @@ public class IUCalculadora extends javax.swing.JFrame {
     private javax.swing.JButton punto;
     private javax.swing.JButton resta;
     private javax.swing.JButton suma;
-    private javax.swing.JTextField txfResult;
+    private javax.swing.JTextField txfContainer;
     // End of variables declaration//GEN-END:variables
 
-    public class ButtonPressedListener implements ActionListener {
+    public class BTNNumberCERO implements ActionListener {
 
         public void actionPerformed(ActionEvent ae) {
-            JButton button = (JButton) ae.getSource();
-            String buttonText = button.getText();
-//            display.setText(display.getText() + buttonText();
-//            DisplayChangedListener
-
+            txfContainer.setText("0");
         }
     }
 
+    public class BTNNumberONE implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            txfContainer.setText("1");
+        }
+
+    }
+
+    public class BTNNumberTWO implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            txfContainer.setText("2");
+        }
+
+    }
+
+    public class BTNNumberTHREE implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            txfContainer.setText("3");
+        }
+
+    }
+
+    public class BTNNumberFOUR implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            txfContainer.setText("4");
+        }
+
+    }
+
+    public class BTNNumberFIVE implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            txfContainer.setText("5");
+        }
+
+    }
+
+    public class BTNNumberSIX implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            txfContainer.setText("6");
+        }
+
+    }
+
+    public class BTNNumberSEVEN implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            txfContainer.setText("7");
+        }
+
+    }
+
+    public class BTNNumberEIGHT implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            txfContainer.setText("8");
+        }
+
+    }
+
+    public class BTNNumberNINE implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            txfContainer.setText("9");
+        }
+    }
 }
